@@ -1,0 +1,20 @@
+ENTITIES:
+    1. User
+    2. Product
+    3. Theme
+    4. Artist
+    5. Genre
+    6. Order
+
+User can register, login, view products, order products
+Artist is a user who submits products.
+Artist may(eg. individual user who is also an artist) or may not(eg. TV Series like FRIENDS) buy products.
+Artist can be grouped into genres
+Theme may be a view on Artist table
+Product can be T-Shirts, mugs,etc.
+
+FEATURES:
+    User login/register
+    system-wide search
+    cart
+    
