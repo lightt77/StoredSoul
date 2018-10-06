@@ -26,6 +26,8 @@ hs_err_pid*
 /StoredSoul/.idea/
 /StoredSoul/target/
 
+/StoredSoul/src/main/resources/application.properties
+
 *.iws
 *.iml
 *.ipr
