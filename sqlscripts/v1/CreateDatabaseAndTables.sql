@@ -13,6 +13,7 @@ create table product(
     name varchar(30) not null unique,
     type enum('tshirt', 'tshirt-dress', 'mobile-cover', 'backpack', 'dufflebag', 'boxer', 'badge', 'mug', 'magnet', 'socks', 'cap', 'flopflops', 'notebook', 'poster', 'sticker', 'tote-bag', 'hoodie', 'action-figure', 'keychain', 'others') default 'others',
 	colour varchar(20) not null,
+    size enum('XXS', 'XS', 'S', 'M', 'L', 'XL', 'XXL'),
     price int not null,
     artist_id int not null,
     date_added datetime default now(),
