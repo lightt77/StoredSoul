@@ -24,9 +24,9 @@ create table product(
 );
 
 create table product_instance(
-	product_instance_id int not null auto_increment primary key,
+	product_instance_id INT not null auto_increment primary key,
     product_id int not null,
-    purchaser_id int default -1,	# -1 here means available
+    purchaser_id int,	# null here means available
     foreign key(product_id) references product(product_id),
     foreign key(purchaser_id) references user(user_id)
 );
