@@ -5,6 +5,7 @@ public class User
     private int userId;
     private String emailId;
     private String password;
+    private String imagePath;
 
     public int getUserId()
     {
@@ -34,5 +35,15 @@ public class User
     public void setPassword(String password)
     {
         this.password = password;
+    }
+
+    public String getImagePath()
+    {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath)
+    {
+        this.imagePath = imagePath;
     }
 }

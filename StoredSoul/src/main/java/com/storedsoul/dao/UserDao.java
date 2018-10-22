@@ -29,6 +29,7 @@ public class UserDao extends DAO<User>
             {
                 put("email_id", user.getEmailId());
                 put("password", user.getPassword());
+                put("image_path", user.getImagePath());
             }
         }, new UserMapper());
     }

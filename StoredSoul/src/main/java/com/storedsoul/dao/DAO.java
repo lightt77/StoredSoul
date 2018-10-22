@@ -8,6 +8,9 @@ import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public abstract class DAO<T>
@@ -35,5 +38,16 @@ public abstract class DAO<T>
         simpleJdbcCall.setProcedureName(storedProcName);
         simpleJdbcCall.returningResultSet(Constants.DEFAULT_RESULT_SET_KEY_FOR_STORED_PROCS, rowMapper);
         return simpleJdbcCall.execute(parameterMap);
+    }
+
+    protected List<T> mapToList(@NotNull Map<String, Object> resultSetMap)
+    {
+        List<T> resultList = new ArrayList<>();
+
+        resultList.addAll((resultSetMap.get(Constants.DEFAULT_RESULT_SET_KEY_FOR_STORED_PROCS)) != null ?
+                (List<T>) resultSetMap.get(Constants.DEFAULT_RESULT_SET_KEY_FOR_STORED_PROCS) :
+                new ArrayList<>());
+
+        return resultList;
     }
 }
