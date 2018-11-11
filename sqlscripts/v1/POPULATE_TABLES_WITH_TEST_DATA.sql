@@ -17,9 +17,10 @@ call ADD_USER('deidara@ss.com', 'test@123');
 call ADD_USER('sasori@ss.com', 'test@123');
 
 # add products
-call ADD_PRODUCT('Batman T-shirt', 'tshirt', 'black', 'XL', 499, 15);
-call ADD_PRODUCT('Pyaar-ek-dhokha-hai T-shirt', 'tshirt', 'black', 'L', 499, 16);
-call ADD_PRODUCT('Dont-play-crazy-with-me Tshirt', 'tshirt', 'black', 'XL', 499, 14);
+call ADD_PRODUCT('Batman T-shirt', 'tshirt', 'black', 'XL', 499, 15, 'https://images.thesouledstore.com/public/theSoul/uploads/catalog/product/20180915203236-1.jpg');
+call ADD_PRODUCT('Pyaar-ek-dhokha-hai T-shirt', 'tshirt', 'black', 'L', 499, 16, '');
+call ADD_PRODUCT('Dont-play-crazy-with-me Tshirt', 'tshirt', 'black', 'XL', 499, 14, '');
+call ADD_PRODUCT('Joker Glow', 'tshirt', 'black', 'XL', 499, 14, 'https://images.thesouledstore.com/public/theSoul/uploads/catalog/product/20181101175932-1.jpg');
 
 # add tags
 call ADD_TAG('Anime');
@@ -33,9 +34,11 @@ call ADD_PRODUCT_INSTANCE('Batman T-shirt');
 call ADD_PRODUCT_INSTANCE('Pyaar-ek-dhokha-hai T-shirt');
 call ADD_PRODUCT_INSTANCE('Dont-play-crazy-with-me Tshirt');
 call ADD_PRODUCT_INSTANCE('Dont-play-crazy-with-me Tshirt');
+call ADD_PRODUCT_INSTANCE('Joker Glow');
 
 # add tags to products
 call ADD_TAG_TO_PRODUCT('Batman T-shirt', 'Comics');
 call ADD_TAG_TO_PRODUCT('Dont-play-crazy-with-me Tshirt', 'Comics');
 call ADD_TAG_TO_PRODUCT('Dont-play-crazy-with-me Tshirt', 'one-liners');
 call ADD_TAG_TO_PRODUCT('Pyaar-ek-dhokha-hai T-shirt', 'one-liners');
+call ADD_TAG_TO_PRODUCT('Joker Glow', 'Comics');
