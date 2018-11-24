@@ -1,3 +1,9 @@
-<div *ngFor="let item of productList; let i = index">
-  <app-product-catalogue-tile [title]="this.productList[i].name" [type]="this.productList[i].type" [price]="this.productList[i].price" [imagePath]="this.productList[i].imagePath+'?h=282&w=282'"></app-product-catalogue-tile>
+<div class="row">
+  <div *ngFor="let item of productList; let i = index" class="col-sm-4">
+    <div>
+      <app-product-catalogue-tile [title]="this.productList[i].name" [type]="this.productList[i].type" [price]="this.productList[i].price"
+        [imagePath]="this.productList[i].imagePath+'?h=282&w=282'"></app-product-catalogue-tile>
+    </div>
+  </div>
+
 </div>
