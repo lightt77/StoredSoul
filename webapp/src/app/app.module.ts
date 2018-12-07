@@ -10,10 +10,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductCatalogueComponent } from './components/product-catalogue/product-catalogue.component';
 import { ProductCatalogueTileComponent } from './components/product-catalogue-tile/product-catalogue-tile.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'products', component:ProductComponent}
+  {path:'products', component:ProductComponent},
+  {path:'product-details/:id', component:ProductDetailsComponent}
 ];
 
 
@@ -24,7 +26,8 @@ const routes: Routes = [
     HeaderComponent,
     ProductComponent,
     ProductCatalogueComponent,
-    ProductCatalogueTileComponent
+    ProductCatalogueTileComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
