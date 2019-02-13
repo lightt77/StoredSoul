@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Logger;
 
 @Repository
@@ -17,9 +18,10 @@ public class UserDao extends DAO<User>
 {
     private final static Logger LOG = Logger.getLogger(UserDao.class.getName());
 
-    public List<User> findAll()
+    public CompletableFuture<List<User>> findAllAsync()
     {
-        return mapToUserList(executeStoredProc(StoredProcedures.GET_ALL_USERS.getValue(), new HashMap<>(), new UserMapper()));
+        return CompletableFuture.supplyAsync(() ->
+            mapToUserList(executeStoredProc(StoredProcedures.GET_ALL_USERS.getValue(), new HashMap<>(), new UserMapper())));
     }
 
     public void add(User user)

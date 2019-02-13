@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("user")
@@ -15,9 +17,10 @@ public class UserController
     private UserDao userDao;
 
     @GetMapping
-    public List<User> getAllUsers()
+    public List<User> getAllUsers() throws ExecutionException, InterruptedException
     {
-        return userDao.findAll();
+        CompletableFuture<List<User>> result = userDao.findAllAsync();
+        return result.get();
     }
 
     @PostMapping
