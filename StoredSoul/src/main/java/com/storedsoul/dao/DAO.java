@@ -12,10 +12,13 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public abstract class DAO<T>
 {
     protected JdbcTemplate jdbcTemplate;
+    protected static final ExecutorService dbService = Executors.newCachedThreadPool();
 
     public DAO()
     {
