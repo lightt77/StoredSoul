@@ -8,14 +8,25 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private httpClient: HttpClient) { }
+  shouldDisplayError: boolean;
+  constructor(private httpClient: HttpClient) {
+    this.shouldDisplayError = false;
+  }
 
   ngOnInit() {
   }
 
   onLoginSubmit(fields: any) {
     this.httpClient.post(environment.baseServerUrl + "login", { "emailId": fields.userName, "password": fields.password })
-      .subscribe(data => console.log(data));
+      .subscribe(response => {
+        if (response === true) {
+          // route to home page
+          
+        }
+        else {
+          // display the error
+          this.shouldDisplayError = true;
+        }
+      });
   }
 }
