@@ -18,22 +18,24 @@ public class UserDao extends DAO<User>
 {
     private final static Logger LOG = Logger.getLogger(UserDao.class.getName());
 
-    public CompletableFuture<List<User>> findAllAsync()
+    public CompletableFuture<List<User>> findAll()
     {
         return CompletableFuture.supplyAsync(() ->
-            mapToUserList(executeStoredProc(StoredProcedures.GET_ALL_USERS.getValue(), new HashMap<>(), new UserMapper())));
+                mapToUserList(executeStoredProc(StoredProcedures.GET_ALL_USERS.getValue(), new HashMap<>(), new UserMapper())));
     }
 
     public void add(User user)
     {
-        executeStoredProc(StoredProcedures.ADD_USER.getValue(), new HashMap<String, Object>()
-        {
-            {
-                put("email_id", user.getEmailId());
-                put("password", user.getPassword());
-                put("image_path", user.getImagePath());
-            }
-        }, new UserMapper());
+        dbService.submit(() ->
+                executeStoredProc(StoredProcedures.ADD_USER.getValue(), new HashMap<String, Object>()
+                {
+                    {
+                        put("email_id", user.getEmailId());
+                        put("password", user.getPassword());
+                        put("image_path", user.getImagePath());
+                    }
+                }, new UserMapper())
+        );
     }
 
     private List<User> mapToUserList(Map<String, Object> resultSetMap)

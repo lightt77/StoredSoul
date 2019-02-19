@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './../../models/IProduct';
@@ -11,9 +12,9 @@ export class ProductCatalogueComponent implements OnInit {
   private productList = [];
 
   constructor(private httpClient: HttpClient) {
-    httpClient.get<IProduct[]>("http://localhost:8080/products")
+    httpClient.get<IProduct[]>(environment.baseServerUrl + "products")
       .subscribe(data => {
-        data.forEach(element=>{
+        data.forEach(element => {
           this.productList.push(element);
         });
       });

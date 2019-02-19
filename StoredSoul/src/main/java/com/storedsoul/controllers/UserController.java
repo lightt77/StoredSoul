@@ -19,7 +19,7 @@ public class UserController
     @GetMapping
     public List<User> getAllUsers() throws ExecutionException, InterruptedException
     {
-        CompletableFuture<List<User>> result = userDao.findAllAsync();
+        CompletableFuture<List<User>> result = userDao.findAll();
         return result.get();
     }
 
