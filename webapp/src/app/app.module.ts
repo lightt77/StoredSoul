@@ -15,7 +15,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent},
   { path: 'products', component: ProductComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'login', component: LoginComponent}
