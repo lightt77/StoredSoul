@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class LoginComponent implements OnInit {
   shouldDisplayError: boolean;
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.shouldDisplayError = false;
   }
 
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
       .subscribe(response => {
         if (response === true) {
           // route to home page
-          
+          this.router.navigate(['/home']);
         }
         else {
           // display the error
